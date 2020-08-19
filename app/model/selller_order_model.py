@@ -42,13 +42,375 @@ class sellerOrderModel():
     __estimated_delivery_shift = db.Column('estimated_delivery_shift', db.String(length=16))
     __invoice_error = db.Column('invoice_error', db.JSON)
 
-    def __init__(self, created_at: str = '', updated_at: str = '', code: str = '', order_id: str = ''
+    def __init__(self, code: str = '', order_id: str = ''
                  , channel_slug: str = '', channel_store: str = '', seller_id: str = '', seller_name: str = ''
                  , purchase_timestamp: str = '', status: str = '', approved_at: str = '', shipping_limit_date: str = ''
-                 , availability_days: int = 0, invoice_url: str = '', invoice_issue_data: str = '', invoice_key: str = ''
+                 , availability_days: int = 0, invoice_url: str = '', invoice_issue_date: str = '', invoice_key: str = ''
                  , invoice_number: int = 0, invoice_serial_number: int = 0, customer_id: str = '', shipment_id: str = ''
                  , invoice_source: str = '', delivered_customer_date: str = '', seller_brand: str = '', seller_email: str = ''
                  , invoice_danfe_url: str = '', cancelation_reason: str = '', cancelation_status: str = '', suspension_reason: str = ''
                  , estimated_delivery_date: str = '', invoice_status: str = '', invoice_id: str = '', branded_store_slug: str = ''
                  , search_vector: str = '', shipping_quote_group_id: str = '', payer_id: str = '', display_status: str = ''
-                 , estimated_delivery_shift: str = '', invoice_error: str = ''):
+                 , estimated_delivery_shift: str = '', invoice_error: str = '', created_at: str = '', updated_at: str = ''):
+
+        self.__code = code
+        self.__order_id = order_id
+        self.__channel_slug = channel_slug
+        self.__channel_store = channel_store
+        self.__seller_id = seller_id
+        self.__seller_name = seller_name
+        self.__purchase_timestamp = purchase_timestamp
+        self.__status = status
+        self.__approved_at = approved_at
+        self.__shipping_limit_date = shipping_limit_date
+        self.__availability_days = availability_days
+        self.__invoice_url = invoice_url
+        self.__invoice_issue_date = invoice_issue_date
+        self.__invoice_key = invoice_key
+        self.__invoice_number = invoice_number
+        self.__invoice_serial_number = invoice_serial_number
+        self.__customer_id = customer_id
+        self.__shipment_id = shipment_id
+        self.__invoice_source = invoice_source
+        self.__delivered_customer_date = delivered_customer_date
+        self.__seller_brand = seller_brand
+        self.__seller_email = seller_email
+        self.__invoice_danfe_url = invoice_danfe_url
+        self.__cancelation_reason = cancelation_reason
+        self.__cancelation_status = cancelation_status
+        self.__suspension_reason = suspension_reason
+        self.__estimated_delivery_date = estimated_delivery_date
+        self.__invoice_status = invoice_status
+        self.__invoice_id = invoice_id
+        self.__branded_store_slug = branded_store_slug
+        self.__search_vector = search_vector
+        self.__shipping_quote_group_id = shipping_quote_group_id
+        self.__payer_id = payer_id
+        self.__display_status = display_status
+        self.__estimated_delivery_shift = estimated_delivery_shift
+        self.__invoice_error = invoice_error
+        super().__init__(id, created_at, updated_at)
+
+    # --------------------------- code
+    @property
+    def code(self) -> str:
+        return self.__code
+
+    @code.setter
+    def code(self, code: str):
+        self.__code = code
+
+    # --------------------------- order_id
+    @property
+    def order_id(self) -> str:
+        return self.__order_id
+
+    @order_id.setter
+    def order_id(self, order_id: str):
+         self.__order_id = order_id
+
+    # --------------------------- channel_slug
+    @property
+    def channel_slug(self) -> str:
+        return self.__channel_slug
+
+    @channel_slug.setter
+    def channel_slug(self, channel_slug: str):
+        self.__channel_slug = channel_slug
+
+     # --------------------------- channel_store
+    @property
+    def channel_store(self) -> str:
+        return self.__channel_store
+
+    @channel_store.setter
+    def channel_store(self, channel_store: str):
+        self.__channel_store = channel_store
+
+    # ------------------------------ seller_id
+    @property
+    def seller_id(self) -> str:
+        return self.__seller_id
+
+    @seller_id.setter
+    def seller_id(self, seller_id: str):
+        self.__seller_id = seller_id
+
+    # ------------------------------- seller_name
+    @property
+    def seller_name(self) -> str:
+        return self.__seller_name
+
+    @seller_name.setter
+    def seller_name(self, seller_name: str):
+        self.__seller_name = seller_name
+
+    # -------------------------------- purchase_timestamp
+    @property
+    def purchase_timestamp(self) -> str:
+        return self.__purchase_timestamp
+
+    @purchase_timestamp.setter
+    def purchase_timestamp(self, purchase_timestamp: str):
+        self.__purchase_timestamp = purchase_timestamp
+
+    # ---------------------------------- status
+    @property
+    def status(self) -> str:
+        return self.__status
+
+    @status.setter
+    def status(self, status: str):
+        self.__status = status
+
+    # ---------------------------------- approved_at
+    @property
+    def approved_at(self) -> str:
+        return self.__approved_at
+
+    @approved_at.setter
+    def approved_at(self, approved_at: str):
+        self.__approved_at = approved_at
+
+    # ---------------------------------- shipping_limit_date
+    @property
+    def shipping_limit_date(self) -> str:
+        return self.__shipping_limit_date
+
+    @shipping_limit_date.setter
+    def shipping_limit_date(self, shipping_limit_date: str):
+        self.__shipping_limit_date
+
+    # ---------------------------------- availability_days
+    @property
+    def availability_days(self) -> str:
+        return self.__availability_days
+
+    @availability_days.setter
+    def availability_days(self, availability_days: str):
+        self.__availability_days = availability_days
+
+    # ---------------------------------- invoice_url
+    @property
+    def invoice_url(self) -> str:
+        return self.__invoice_url
+
+    @invoice_url.setter
+    def invoice_url(self, invoice_url: str):
+        self.__invoice_url = invoice_url
+
+    # ---------------------------------- invoice_issue_date
+    @property
+    def invoice_issue_date(self) -> str:
+        return self.__invoice_issue_date
+
+    @invoice_issue_date.setter
+    def invoice_issue_date(self, invoice_issue_date: str):
+        self.__invoice_issue_date = invoice_issue_date
+
+    # ---------------------------------- invoice_key
+    @property
+    def invoice_key(self) -> str:
+        return self.__invoice_key
+
+    @invoice_key.setter
+    def invoice_key(self, invoice_key: str):
+        self.__invoice_key = invoice_key
+
+    # ---------------------------------- invoice_number
+    @property
+    def invoice_number(self) -> int:
+        return self.invoice_number
+
+    @invoice_number.setter
+    def invoice_number(self, invoice_number: int):
+        self.__invoice_number = invoice_number
+
+    # ---------------------------------- invoice_serial_number
+    @property
+    def invoice_serial_number(self) -> int:
+        return self.__invoice_serial_number
+
+    @invoice_serial_number.setter
+    def invoice_serial_number(self, invoice_serial_number: int):
+        self.__invoice_serial_number = invoice_serial_number
+
+    # ------------------------------------ customer_id
+    @property
+    def customer_id(self) -> str:
+        return self.__customer_id
+
+    @customer_id.setter
+    def customer_id(self, customer_id: str):
+        self.__customer_id = customer_id
+
+    # ------------------------------------ shipment_id
+    @property
+    def shipment_id(self) -> str:
+        return self.__shipment_id
+
+    @shipment_id.setter
+    def shipment_id(self, shipment_id: str):
+        self.__shipment_id = shipment_id
+
+    # ------------------------------------ invoice_source
+    @property
+    def invoice_source(self) -> str:
+        return self.__invoice_source
+
+    @invoice_source.setter
+    def invoice_source(self, invoice_source: str):
+        self.__invoice_source = invoice_source
+
+    # ------------------------------------ delivered_customer_date
+    @property
+    def delivered_customer_date(self) -> str:
+        return self.__delivered_customer_date
+
+    @delivered_customer_date.setter
+    def delivered_customer_date(self, delivered_customer_date: str):
+        self.__delivered_customer_date = delivered_customer_date
+
+    # ------------------------------------ seller_brand
+    @property
+    def seller_brand(self) -> str:
+        return self.__seller_brand
+
+    @seller_brand.setter
+    def seller_brand(self, seller_brand: str):
+        self.__seller_brand = seller_brand
+
+    # ------------------------------------ seller_email
+    @property
+    def seller_email(self) -> str:
+        return self.__seller_email
+
+    @seller_email.setter
+    def seller_email(self, seller_email: str):
+        self.__seller_email = seller_email
+
+    # ------------------------------------ invoice_danfe_url
+    @property
+    def invoice_danfe_url(self) -> str:
+        return self.__invoice_danfe_url
+
+    @invoice_danfe_url.setter
+    def invoice_danfe_url(self, invoice_danfe_url: str):
+        self.__invoice_danfe_url = invoice_danfe_url
+
+    # ------------------------------------ cancelation_reason
+    @property
+    def cancelation_reason(self) -> str:
+        return self.__cancelation_reason
+
+    @cancelation_reason.setter
+    def cancelation_reason(self, cancelation_reason: str):
+        self.__cancelation_reason = cancelation_reason
+
+    # ------------------------------------ cancelation_status
+    @property
+    def cancelation_status(self) -> str:
+        return self.__cancelation_status
+
+    @cancelation_status.setter
+    def cancelation_status(self, cancelation_status: str):
+        self.__cancelation_status = cancelation_status
+
+    # ------------------------------------ suspension_reason
+    @property
+    def suspension_reason(self) -> str:
+        return self.__suspension_reason
+
+    @suspension_reason.setter
+    def suspension_reason(self, suspension_reason: str):
+        self.__suspension_reason = suspension_reason
+
+    # ------------------------------------ estimated_delivery_date
+    @property
+    def estimated_delivery_date(self) -> str:
+        return self.__estimated_delivery_date
+
+    @estimated_delivery_date.setter
+    def estimated_delivery_date(self, estimated_delivery_date: str):
+        self.__estimated_delivery_date = estimated_delivery_date
+
+    # ------------------------------------ invoice_status
+    @property
+    def invoice_status(self) -> str:
+        return self.__invoice_status
+
+    @invoice_status.setter
+    def invoice_status(self, invoice_status: str):
+        self.__invoice_status = invoice_status
+
+    # ------------------------------------ invoice_id
+    @property
+    def invoice_id(self) -> str:
+        return self.__invoice_id
+
+    @invoice_id.setter
+    def invoice_id(self, invoice_id: str):
+        self.__invoice_id = invoice_id
+
+    # ------------------------------------ branded_store_slug
+    @property
+    def branded_store_slug(self) -> str:
+        return self.__branded_store_slug
+
+    @branded_store_slug.setter
+    def branded_store_slug(self, branded_store_slug: str):
+        self.__branded_store_slug = branded_store_slug
+
+    # ------------------------------------ search_vector
+    @property
+    def search_vector(self) -> str:
+        return self.__search_vector
+
+    @search_vector.setter
+    def search_vector(self, search_vector: str):
+        self.__search_vector = search_vector
+
+    # ------------------------------------ shipping_quote_group_id
+    @property
+    def shipping_quote_group_id(self) -> str:
+        return self.__shipping_quote_group_id
+
+    @shipping_quote_group_id.setter
+    def shipping_quote_group_id(self, shipping_quote_group_id: str):
+        self.__shipping_quote_group_id = shipping_quote_group_id
+
+    # ------------------------------------ payer_id
+    @property
+    def payer_id(self) -> str:
+        return self.__payer_id
+
+    @payer_id.setter
+    def payer_id(self, payer_id: str):
+        self.__payer_id = payer_id
+
+    # ------------------------------------ display_status
+    @property
+    def display_status(self) -> str:
+        return self.__display_status
+
+    @display_status.setter
+    def display_status(self, display_status: str):
+        self.__display_status = display_status
+
+    # ------------------------------------ estimated_delivery_shift
+    @property
+    def estimated_delivery_shift(self) -> str:
+        return self.__estimated_delivery_shift
+
+    @estimated_delivery_shift.setter
+    def estimated_delivery_shift(self, estimated_delivery_shift: str):
+        self.__estimated_delivery_shift = estimated_delivery_shift
+
+    # ------------------------------------ invoice_error
+    @property
+    def invoice_error(self) -> str:
+        return self.__invoice_error
+
+    @invoice_error.setter
+    def invoice_error(self, invoice_error: str):
+        self.__invoice_error = invoice_error
