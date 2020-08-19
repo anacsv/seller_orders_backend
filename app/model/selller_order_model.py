@@ -1,7 +1,7 @@
 import sqlalchemy as db
 from sqlalchemy.ext.declarative import declarative_base
 
-class sellerOrderModel():
+class SellerOrderModel():
     __tablename__ = 'seller_orders_sellerorder'
     __created_at = db.Column('created_at', db.TIMESTAMP)
     __update_at = db.Column('update_at', db.TIMESTAMP)
