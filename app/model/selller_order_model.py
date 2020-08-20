@@ -91,6 +91,50 @@ class SellerOrderModel():
         self.__invoice_error = invoice_error
         super().__init__(id, created_at, updated_at)
 
+    # --------------- formated Json
+    def to_json(self):
+        return {
+            'id': self.id,
+            'created_at': self.created_at,
+            'updated_at': self.updated_at,
+            'code': self.code,
+            'order_id': self.order_id,
+            'channel_slug': self.channel_slug,
+            'channel_store': self.channel_store,
+            'seller_id': self.seller_id,
+            'seller_name': self.seller_name,
+            'purchase_timestamp': self.purchase_timestamp,
+            'status': self.status,
+            'approved_at': self.approved_at,
+            'shipping_limit_date': self.shipping_limit_date,
+            'availability_days': self.availability_days,
+            'invoice_url': self.invoice_url,
+            'invoice_issue_date': self.invoice_issue_date,
+            'invoice_key': self.invoice_key,
+            'invoice_number': self.invoice_number,
+            'invoice_serial_number': self.invoice_serial_number,
+            'customer_id': self.customer_id,
+            'shipment_id': self.shipment_id,
+            'invoice_source': self.invoice_source,
+            'delivered_customer_date': self.delivered_customer_date,
+            'seller_brand': self.seller_brand,
+            'seller_email': self.seller_email,
+            'invoice_danfe_url': self.invoice_danfe_url,
+            'cancelation_reason': self.cancelation_reason,
+            'cancelation_status': self.cancelation_status,
+            'suspension_reason': self.suspension_reason,
+            'estimated_delivery_date': self.estimated_delivery_date,
+            'invoice_status': self.invoice_status,
+            'invoice_id': self.invoice_id,
+            'branded_store_slug': self.branded_store_slug,
+            'search_vector': self.search_vector,
+            'shipping_quote_group_id': self.shipping_quote_group_id,
+            'payer_id': self.payer_id,
+            'display_status': self.display_status,
+            'estimated_delivery_shift': self.estimated_delivery_shift,
+            'invoice_error': self.invoice_error,
+        }
+
     # --------------------------- code
     @property
     def code(self) -> str:

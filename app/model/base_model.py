@@ -4,7 +4,7 @@ from sqlalchemy.ext.declarative import declarative_base
 Base = declarative_base()
 
 class BaseModel:
-    __id = db.Column('id', db.String(length=16), primary_key = True)
+    __id = db.Column('id', db.String(length=36), primary_key = True)
     __created_at = db.Column('created_at', db.TIMESTAMP)
     __updated_at = db.Column('updated_at', db.TIMESTAMP)
 
