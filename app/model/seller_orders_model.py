@@ -93,7 +93,6 @@ class SellerOrdersModel(BaseModel, Base):
         self.__display_status = display_status
         self.__estimated_delivery_shift = estimated_delivery_shift
         self.__invoice_errors = invoice_errors
-        self
 
     def to_dict(self) -> dict:
         return {

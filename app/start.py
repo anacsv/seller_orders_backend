@@ -16,4 +16,4 @@ def initial():
 
 api.add_resource(SellerOrdersController, '/api/seller-orders/', '/api/seller-orders/<id>', endpoint='seller-orders')
 
-app.run()
+app.run(debug=True)
