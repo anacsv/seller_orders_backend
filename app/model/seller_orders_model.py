@@ -6,7 +6,7 @@ from app.model.base_model import BaseModel
 Base = declarative_base()
 
 
-class SellerOrderModel(BaseModel, Base):
+class SellerOrdersModel(BaseModel, Base):
 
     __tablename__ = 'seller_orders_sellerorder'
     __code = db.Column('code', db.String(length=16))

@@ -2,7 +2,7 @@ from flask import Flask
 from flask_restful import Api
 from flask_cors import CORS
 
-from app.controller.seller_order_controller import SellerOrderController
+from app.controller.seller_orders_controller import SellerOrdersController
 
 app = Flask(__name__)
 api = Api(app)
@@ -14,6 +14,6 @@ def initial():
     return ''
 
 
-api.add_resource(SellerOrderController, '/api/sellers-order/', '/api/sellers-order/<id>', endpoint='sellers-order')
+api.add_resource(SellerOrdersController, '/api/seller-orders/', '/api/seller-orders/<id>', endpoint='seller-orders')
 
-app.run(debug=True)
+app.run()

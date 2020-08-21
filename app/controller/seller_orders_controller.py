@@ -1,13 +1,13 @@
-from app.dao.seller_order_dao import SellerOrderDao
-from app.model.seller_order_model import SellerOrderModel
+from app.dao.seller_orders_dao import SellerOrdersDao
+from app.model.seller_orders_model import SellerOrdersModel
 from flask import jsonify, request
 from flask_restful import Resource
 
 
-class SellerOrderController(Resource):
+class SellerOrdersController(Resource):
 
     def __init__(self):
-        self.__dao = SellerOrderDao()
+        self.__dao = SellerOrdersDao()
 
     def get(self, id=None):
         if id:
@@ -15,21 +15,21 @@ class SellerOrderController(Resource):
             if model:
                 return jsonify(model.to_dict())
             return {}
-        return jsonify([sellerorder.to_dict() for sellerorder in self.__dao.read()])
+        return jsonify([sellerorders.to_dict() for sellerorders in self.__dao.read()])
 
     # create
     def post(self):
         data = request.get_json()
-        sellerorder = SellerOrderModel(**data)
-        model = self.__dao.create(sellerorder)
+        sellerorders = SellerOrdersModel(**data)
+        model = self.__dao.create(sellerorders)
         return self.verify_sql_error(model)
 
     # update
     def put(self, id):
         data = request.get_json()
-        sellerorder = SellerOrderModel(**data)
-        sellerorder.id = id
-        model = self.__dao.update(sellerorder)
+        sellerorders = SellerOrdersModel(**data)
+        sellerorders.id = id
+        model = self.__dao.update(sellerorders)
         return self.verify_sql_error(model)
 
     # delete
@@ -38,6 +38,6 @@ class SellerOrderController(Resource):
         return jsonify(message)
 
     def verify_sql_error(self, m):
-        if type(m) == SellerOrderModel:
+        if type(m) == SellerOrdersModel:
             return jsonify(m.to_dict())
         return jsonify(m)
